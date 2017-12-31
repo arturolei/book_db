@@ -8,9 +8,9 @@ class Book(models.Model):
     author_nome= models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     publisher= models.CharField(max_length=200)
-    pub_year = models.CharField(max_length=200)
+    pub_year = models.IntegerField()
     language= models.CharField(max_length=100)
-    translation = models.CharField(max_length=200)
+    translation = models.BooleanField(default=False)
     notes = models.TextField()
     acquisition_year = models.CharField(max_length=200)
     created_date = models.DateTimeField(
