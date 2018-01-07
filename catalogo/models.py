@@ -17,6 +17,10 @@ class Book(models.Model):
             default=timezone.now)
     catalog_date = models.DateTimeField(
             blank=True, null=True)
+    in_library = models.BooleanField(default=True)
+    borrowed = models.BooleanField(default=False)
+    borrower = models.CharField(max_length=100,default="Nemo")
+
 
     def catalogare(self):
         self.published_date = timezone.now()
