@@ -1,0 +1,13 @@
+{% extends 'catalogo/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if book.catalog_date %}
+            <div class="date">
+                {{ book.catalog_date }}
+            </div>
+        {% endif %}
+        <h1>{{ book.title }}</h1>
+        <p>{{ book.notes|linebreaksbr }}</p>
+    </div>
+{% endblock %}

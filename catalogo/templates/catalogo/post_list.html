@@ -1,28 +1,17 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html>
-  <head>
-    <title>
-      Catalogo della 2a Biblioteca Arturiana
-    </title>
-    <link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
-  </head>
-  <body>
-    <div>
-      <h1>Catalogo della 2a Bibliotica Arturiana</h1>
-    </div>
-    <p>This is a catalog of all the books that Arthur owns. This project was started in January 2018. </p>
 
-    {% for book in books %}
-    <div>
-      <h2>{{ book.title }}</h2>
+{% extends 'catalogo/base.html' %}
+{% block content %}
+  {% for book in books %}
+  <div class="post">
+    <h2>
+      <a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a>
+    </h2>
+    <div class="date">
       <p>Cataloged: {{book.created_date}}</p>
-      <p>{{ book.notes|linebreaksbr }}</p>
-    <div>
-
-    {% endfor %}
-
-  </body>
-
-
-</html>
+    </div>
+    <p>
+      {{ book.notes|linebreaksbr }}
+    </p>
+  </div>
+  {% endfor %}
+{% endblock %}
