@@ -8,7 +8,26 @@
             </div>
         {% endif %}
         <a class="btn btn-default" href="{% url 'book_edit' pk=book.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <h1>{{ book.title }}</h1>
+        <h1> Title: {{ book.title }}</h1>
+        <h2>Notes:</h2>
         <p>{{ book.notes|linebreaksbr }}</p>
+        <h3>Publisher:</h3>
+        <p>{{ book.publisher|linebreaksbr }}</p>
+        <h3>Year of Publication:</h3>
+        <p>{{ book.pub_year|linebreaksbr }}</p>
+        <h3>Language:</h3>
+        <p>{{ book.language|linebreaksbr }}</p>
+        <h3>Translation:</h3>
+        <p>{{ book.translation|linebreaksbr }}</p>
+        <h3>Borrowed?</h3>
+        <p>
+          {{book.borrowed}}
+        </p>
+
+        <h3>Date cataloged:</h3>
+        <p>
+          {{book.created_date}}
+        </p>
+
     </div>
 {% endblock %}
